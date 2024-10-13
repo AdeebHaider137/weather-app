@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #weather {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weather"></div>
+    <p id="city-date"></p>
+ 
+    <script>
+        function getWeather() {
+            const city = document.getElementById('city').value;
+
+            // Fetch weather data from server
+            fetch(`/weather?city=${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('weather').innerHTML = data.error;
+                    } else {
+                         
+
+                        // Display weather info
+                        document.getElementById('weather').innerHTML = `
+                            <h2>${data.city}</h2>
+                            <p>Temperature: ${data.temperature} °C</p>
+                            <p>Condition: ${data.description}</p>
+                            <img class="icon" src="http://openweathermap.org/img/wn/${data.icon}.png" alt="Weather Icon">
+                        `;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+         
+    </script>
+</body>
+</html>
