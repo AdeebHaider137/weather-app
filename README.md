@@ -13,7 +13,7 @@ A simple weather application built with Node.js and the OpenWeather API. This pr
 - **Node.js**
 - **Express.js**
 - **OpenWeather API**
-- **Jest** (for testing)
+- **Jenkins** (Pipelines)
 - **GitHub Actions** (for CI/CD)
 
 ## Getting Started
@@ -38,15 +38,7 @@ A simple weather application built with Node.js and the OpenWeather API. This pr
 
 ## CI/CD Pipeline
 
-Automated testing and deployment are set up using GitHub Actions. Check the "Actions" tab for details.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
+Automated testing and deployment are set up using GitHub Actions.
 
 ---
 
